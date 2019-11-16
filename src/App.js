@@ -10,14 +10,16 @@ class App extends React.Component {
     //helper method to handle submit from search bar component
     handleSubmit = async (term) => {
         //pass search term into youtube API search (using our axios helper)
-        const response = await youtube.get('search', {params: {
-            part: 'snippet',
-            maxResults: 5,
-            key: process.env.REACT_APP_YOUTUBE_API_KEY,
-            q: term
-        }});
+        const response = await youtube.get('search', {
+            params: {
+                part: 'snippet',
+                maxResults: 5,
+                key: process.env.REACT_APP_YOUTUBE_API_KEY,
+                q: term
+            }
+        });
 
-        console.log(response);
+        console.log(response.data.items);
     }
 
     //render function
