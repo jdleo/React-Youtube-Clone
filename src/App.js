@@ -7,14 +7,22 @@ import youtube from './api/youtube';
 
 class App extends React.Component {
 
+    //helper method to handle submit from search bar component
+    handleSubmit = async (term) => {
+        //pass search term into youtube API search (using our axios helper)
+        const response = await youtube.get('search', {params: {q: term}});
+
+        console.log(response);
+    }
+
     //render function
     render () {
         return (
             <Grid container spacing={16} justify="center" >
                 <Grid item xs={12}>
-                    <Grid container spacing={16}>
+                    <Grid container spacing={10}>
                         <Grid item xs={12}>
-                            <SearchBar></SearchBar>
+                            <SearchBar onFormSubmit={this.handleSubmit}></SearchBar>
                         </Grid>
                         <Grid item xs={8}>
                             <VideoDetails></VideoDetails>
