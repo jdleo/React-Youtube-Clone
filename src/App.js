@@ -7,6 +7,12 @@ import youtube from './api/youtube';
 
 class App extends React.Component {
 
+    //state for this component
+    state = {
+        videos: [], 
+        selectedVideo: null,
+    }
+
     //helper method to handle submit from search bar component
     handleSubmit = async (term) => {
         //pass search term into youtube API search (using our axios helper)
@@ -19,11 +25,19 @@ class App extends React.Component {
             }
         });
 
-        console.log(response.data.items);
+        //set videos in state
+        this.setState({
+            videos: response.data.items,
+            selectedVideo: response.data.items[0]
+        });
     }
 
     //render function
     render () {
+
+        //get variables from our current state
+        const { selectedVideo } = this.state;
+
         return (
             <Grid container spacing={10} justify="center" >
                 <Grid item xs={12}>
@@ -32,7 +46,7 @@ class App extends React.Component {
                             <SearchBar onFormSubmit={this.handleSubmit}></SearchBar>
                         </Grid>
                         <Grid item xs={8}>
-                            <VideoDetails></VideoDetails>
+                            <VideoDetails video={selectedVideo}></VideoDetails>
                         </Grid>
                         <Grid item xs={4}>
                             <VideoList></VideoList>
