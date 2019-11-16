@@ -14,8 +14,6 @@ class VideoDetails extends React.Component {
         //get video source, and slap it in a youtube embed link
         const videoSource = `https://www.youtube.com/embed/${video.id.videoId}`
 
-        console.log(videoSource);
-
         return (
             <React.Fragment>
                 <Paper elevation={4} style={{height: "70%"}}>
