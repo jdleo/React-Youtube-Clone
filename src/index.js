@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class App from React.Component {
-    render () {
-        return (
-            <h1>Youtube Clone</h1>
-        );
-    }
-}
+//import our App component
+import App from './App.js';
 
-export default App;
+//render App component into root
+ReactDOM.render(<App/>, document.querySelector('#root'));
