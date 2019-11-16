@@ -9,7 +9,7 @@ class VideoList extends React.Component {
         //get current list of videos
         const listOfVideos = this.props.videos.map((video, id) => (
             //create a video item for this video in videos
-            <VideoItem key={id}/>
+            <VideoItem video={video} key={id}/>
         ));
 
         //return video items we just got
