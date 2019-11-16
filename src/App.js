@@ -32,6 +32,14 @@ class App extends React.Component {
         });
     }
 
+    //helper method to handle when video is selected
+    onVideoSelect = (video) => {
+        //set new selected video
+        this.setState({
+            selectedVideo: video
+        });
+    }
+
     //render function
     render () {
 
@@ -49,7 +57,7 @@ class App extends React.Component {
                             <VideoDetails video={selectedVideo}></VideoDetails>
                         </Grid>
                         <Grid item xs={4}>
-                            <VideoList videos={videos}></VideoList>
+                            <VideoList videos={videos} onVideoSelect={this.onVideoSelect}></VideoList>
                         </Grid>
                     </Grid>
                 </Grid>
