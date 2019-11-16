@@ -36,7 +36,7 @@ class App extends React.Component {
     render () {
 
         //get variables from our current state
-        const { selectedVideo } = this.state;
+        const { videos, selectedVideo } = this.state;
 
         return (
             <Grid container spacing={10} justify="center" >
@@ -49,7 +49,7 @@ class App extends React.Component {
                             <VideoDetails video={selectedVideo}></VideoDetails>
                         </Grid>
                         <Grid item xs={4}>
-                            <VideoList></VideoList>
+                            <VideoList videos={videos}></VideoList>
                         </Grid>
                     </Grid>
                 </Grid>
